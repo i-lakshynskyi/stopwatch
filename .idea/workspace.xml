@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="34bf33fb-0de0-4af6-a0cc-d3f5904c2728" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/Button/Button.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Button/style.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/StopwatchRxjs/stopwatch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/StopwatchRxjs/style.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-    </list>
+    <list default="true" id="34bf33fb-0de0-4af6-a0cc-d3f5904c2728" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -1,115 +1,116 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { interval } from 'rxjs';
 import style from './style.module.css';
-import Button from "../Button/Button";
+import Button from '../Button/Button';
+import { take } from 'rxjs/operators';
 
-const Stopwatch = ()=>{
-	const [count, setCount] = useState(0);
+const Stopwatch = () => {
+   const [timerHours, setTimerHours] = useState('00');
+   const [timerMin, setTimerMin] = useState('00');
+   const [timerSec, setTimerSec] = useState('00');
+   const [timerMs, setTimerMs] = useState('00');
+   const [isPaused, setIsPaused] = useState(false);
+   const [timerId, setTimerId] = useState(0);
+   const [intervalData, setIntervalData] = useState([]);
+   const [disabledStart, setDisabledStart] = useState(false);
+   const [disabledStop, setDisabledStop] = useState(true);
+   const [disabledReset, setDisabledReset] = useState(true);
+   const [disabledWait, setDisabledWait] = useState(true);
 
-	return( <div>
-		<div className={style.timer}>
-			<div className={style.time}>{`${count}`}</div>
-		{/*	<div className={style.time}>{`${state.min}`}</div>
-			<div className={style.time}>{`${state.sec}`}</div>
-			<div className={style.time}>{`${state.ms}`}</div>*/}
-		</div>
-		<div className={style.buttons}>
-			<Button disabled={this.state.disabledStart} text={'start'} onClick={setCount(count+1)} />
-		{/*	<Button text={'interval'} onClick={this.saveInterval.bind(this)} />
-			<Button disabled={this.state.disabledWait} text={'wait'} onClick={this.wait.bind(this)} />
-			<Button disabled={this.state.disabledStop} text={'stop'} onClick={this.stop.bind(this)} />
-			<Button text={'reset'} onClick={this.reset.bind(this)} />*/}
-		</div>
-		{/*<div className={style.output}>{this.state.intervalData}</div>*/}
-	</div>);
-}
+   const startStopwatch = () => {
+      setTimerHours('00');
+      setTimerMin('00');
+      setTimerSec('00');
+      setTimerMs('00');
+      setIsPaused(false);
+      setDisabledStart(true);
+      setDisabledStop(false);
+      // setDisabledWait(false);
+
+      let countMs = 0;
+      let countSec = 0;
+      let countMin = 0;
+      let countHours = 0;
+
+      let stream$ = interval(10)
+         // .pipe(take(100))
+         .subscribe((tick) => {
+            if (!isPaused) {
+               countMs++;
+               setTimerMs(countMs < 10 ? '0' + countMs : countMs);
+               if (countMs === 100) {
+                  countMs = 0;
+                  setTimerMs(countMs);
+                  countSec++;
+                  setTimerSec(countSec < 10 ? '0' + countSec : countSec);
+               }
+               if (countSec === 60) {
+                  countSec = 0;
+                  setTimerSec(countSec);
+                  countMin++;
+                  setTimerMin(countMin < 10 ? '0' + countMin : countMin);
+               }
+               if (countMin === 60) {
+                  countMin = 0;
+                  setTimerMin(countMin);
+                  countHours++;
+                  setTimerHours(countHours < 10 ? '0' + countHours : countHours);
+               }
+            }
+         });
+      setTimerId(stream$);
+   };
+   const saveInterval = () => {
+      let interval = `${timerHours} : ${timerMin} : ${timerSec} : ${timerMs}`;
+      let arrIntervalsInDiv = [...intervalData, interval].map((item, index) => (
+         <div className={style.resInterval} key={index}>
+            {item}
+         </div>
+      ));
+      setIntervalData(arrIntervalsInDiv);
+      setDisabledReset(false);
+   };
+   const wait = () => {
+      // setIsPaused(true);
+      setDisabledStart(false);
+      console.log(isPaused);
+   };
+   const stop = () => {
+      timerId.unsubscribe();
+      setDisabledStart(false);
+      setDisabledReset(false);
+      setDisabledStop(true);
+   };
+   const reset = () => {
+      timerId.unsubscribe();
+      setTimerHours('00');
+      setTimerMin('00');
+      setTimerSec('00');
+      setTimerMs('00');
+      setIsPaused(false);
+      setIntervalData([]);
+      setDisabledReset(true);
+      setDisabledStart(false);
+   };
+
+   return (
+      <div>
+         <div className={style.timer}>
+            <div className={style.time}>{timerHours}</div>
+            <div className={style.time}>{timerMin}</div>
+            <div className={style.time}>{timerSec}</div>
+            <div className={style.time}>{timerMs}</div>
+         </div>
+         <div className={style.buttons}>
+            <Button disabled={disabledStart} text={'start'} onClick={() => startStopwatch()} />
+            <Button text={'interval'} onClick={() => saveInterval()} />
+            <Button disabled={disabledWait} text={'wait'} onClick={() => wait()} />
+            <Button disabled={disabledStop} text={'stop'} onClick={() => stop()} />
+            <Button disabled={disabledReset} text={'reset'} onClick={() => reset()} />
+         </div>
+         <div className={style.output}>{intervalData}</div>
+      </div>
+   );
+};
 
 export default Stopwatch;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-import React, { Component } from "react";
-// import React from "react";
-import Button from "../Button/Button";
-import { interval } from "rxjs";
-import { map, take } from "rxjs/operators";
-import style from "./style.module.css";
-
-class Timer extends Component {
-	state = {
-		stream$: interval(1000),
-		sec: 0,
-		min: 0,
-		hours: 0,
-		disabledStart: false,
-		disabledWait: false,
-		disabledStop: false,
-		disabledReset: false,
-		intervals: [],
-	};
-
-	start(propsHours) {
-		this.setState({ disabledStart: true });
-		const sub = this.state.stream$
-			.pipe(
-				take(60),
-				map((value) => value + 1)
-			)
-			.subscribe((res) => {
-				this.setState({ sec: res < 10 ? "0" + res : res });
-				if (this.state.sec === 60 && this.state.min < 60) {
-					this.setState({ sec: 0, min: this.state.min + 1 });
-					this.start();
-				} else if (this.state.min === 60 && this.state.hours < 24) {
-					this.setState({ sec: 0, min: 0, hours: this.state.hours + 1 });
-				}
-			});
-		if (this.state.hours === 24 || propsHours === 24) {
-			sub.unsubscribe();
-			this.setState({
-				disabledStart: false,
-				hours: 0,
-				min: 0,
-				sec: 0,
-			});
-		}
-	}
-	reset() {
-	}
-
-	render() {
-		return (
-			<div>
-				{/!*        <div className={style.timer}>
-          <div className={style.time}>{`${this.state.hours}`}</div>
-          <div className={style.time}>{`${this.state.min}`}</div>
-          <div className={style.time}>{`${this.state.sec}`}</div>
-        </div>
-        <div className={style.buttons}>
-          <Button
-            disabled={this.state.disabledStart}
-            text={"start"}
-            onClick={this.start.bind(this)}
-          />
-          <Button text={"wait"} />
-          <Button text={"stop"} />
-          <Button text={"reset"} onClick={this.reset.bind(this)} />
-        </div>*!/}
-			</div>
-		);
-	}
-}
-
-export default Timer;
-*/
