@@ -1,0 +1,22 @@
+.button {
+  display: inline;
+  margin-top: 0.5vh;
+}
+.button button {
+  width:6.5vw;
+  height: 3vh;
+  border: none;
+  background-color: orange;
+  border-radius: 5%;
+  font-size: 2vh;
+}
+.button button:hover {
+  border: 2px solid lightblue;
+}
+.button button:focus {
+  outline: none;
+}
+.button button:active {
+  background-color: lightblue;
+  color: orange;
+}

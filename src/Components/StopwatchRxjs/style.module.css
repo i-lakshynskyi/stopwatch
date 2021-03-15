@@ -1,0 +1,38 @@
+.timer {
+    width: 36vw;
+    height: 6vh;
+    border: 1px solid orange;
+    background-color: #90a2bc;
+    text-align: center;
+    font-size: 4vh;
+    text-shadow: 0.1vh 0.1vh 0.1vh white;
+    line-height: 6vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.time {
+    display: inline-block;
+    width: 8vw;
+    height: 6vh;
+    text-align: center;
+    background-color: #89c3f5;
+}
+
+.buttons {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.output {
+    position: absolute;
+    left: 2vw;
+    top: 3vh;
+    font-size: 3vh;
+    font-family: Verdana;
+}
+
+.resInterval {
+    border-bottom: 0.5px solid orange;
+}
