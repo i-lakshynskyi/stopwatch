@@ -1,8 +1,16 @@
-body{
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color:  #231a46;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stopwatch_wrapper{
+    width: 40vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #241b60;
 }

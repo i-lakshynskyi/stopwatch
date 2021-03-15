@@ -1,13 +1,13 @@
-import "./App.css";
-import React from "react";
+import React from 'react';
+import './App.css';
 import Stopwatch from "./Components/StopwatchRxjs/stopwatch";
 
-const App = (props) => {
-  return (
-      <div className="app-wrapper">
-        <Stopwatch/>
+function App() {
+   return (
+      <div className="stopwatch_wrapper">
+         <Stopwatch />
       </div>
-  );
-};
+   );
+}
 
 export default App;

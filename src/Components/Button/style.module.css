@@ -1,22 +1,35 @@
 .button {
-  display: inline;
-  margin-top: 0.5vh;
+    display: inline;
 }
+
 .button button {
-  width:6.5vw;
-  height: 3vh;
-  border: none;
-  background-color: orange;
-  border-radius: 5%;
-  font-size: 2vh;
+    width: 6.5vw;
+    height: 4vh;
+    border: none;
+    background-color: orange;
+    border-radius: 5%;
+    font-size: 2vh;
+    margin: 10px;
 }
+
 .button button:hover {
-  border: 2px solid lightblue;
+    border: 2px solid lightblue;
 }
+
 .button button:focus {
-  outline: none;
+    outline: none;
 }
+
 .button button:active {
-  background-color: lightblue;
-  color: orange;
+    background-color: lightblue;
+    color: orange;
+    box-shadow: 0px -10px 50px 10px white;
+}
+
+.button .wait:hover::after {
+    content: attr(hint);
+    position: relative;
+    top: 4vh;
+    left: 1vw;
+    color: white;
 }

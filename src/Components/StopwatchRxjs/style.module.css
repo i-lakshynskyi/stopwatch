@@ -1,8 +1,6 @@
 .timer {
     width: 36vw;
     height: 6vh;
-    border: 1px solid orange;
-    background-color: #90a2bc;
     text-align: center;
     font-size: 4vh;
     text-shadow: 0.1vh 0.1vh 0.1vh white;
@@ -17,12 +15,16 @@
     height: 6vh;
     text-align: center;
     background-color: #89c3f5;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 .buttons {
-    width: auto;
+    max-width: 36vw;
+    height: 4vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .output {
@@ -31,6 +33,7 @@
     top: 3vh;
     font-size: 3vh;
     font-family: Verdana;
+    color: #89c3f5;
 }
 
 .resInterval {
