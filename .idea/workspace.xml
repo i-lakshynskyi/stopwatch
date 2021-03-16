@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="34bf33fb-0de0-4af6-a0cc-d3f5904c2728" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Button/Button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Button/Button.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Button/style.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Button/style.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/StopwatchRxjs/stopwatch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/StopwatchRxjs/stopwatch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/StopwatchRxjs/style.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/StopwatchRxjs/style.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +74,8 @@
       <option name="presentableId" value="Default" />
       <updated>1615814100432</updated>
       <workItem from="1615814107360" duration="1950000" />
-      <workItem from="1615841474099" duration="8095000" />
+      <workItem from="1615841474099" duration="8772000" />
+      <workItem from="1615891603054" duration="3499000" />
     </task>
     <servers />
   </component>
@@ -103,5 +99,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1344" height="349" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1080@0.0.1366.728" timestamp="1615840942245" />
+    <state x="339" y="157" key="run.anything.popup" timestamp="1615891871056">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="157" key="run.anything.popup/0.0.1366.728/1366.0.1920.1080@0.0.1366.728" timestamp="1615891871056" />
   </component>
 </project>

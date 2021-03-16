@@ -12,7 +12,7 @@ const Stopwatch = () => {
    const start = () => {
       countDataTime();
       setStatus(1);
-      let stream$ = interval(10).subscribe(() => {
+      let stream$ = interval(10).subscribe((tic) => {
          countDataTime();
       });
       setStream(stream$);
@@ -54,14 +54,20 @@ const Stopwatch = () => {
    };
 
    const saveInterval = () => {
-      let interval = `${time.h} : ${time.m} : ${time.s} : ${time.ms >= 10 ? time.ms : '0' + time.ms}`;
-      let arrIntervalsInDiv = [...intervalData, interval].map((item, index) => (
-          <div className={style.resInterval} key={index}>
-             {item}
-          </div>
-      ));
+      let interval = `${time.h >= 10 ? time.h : '0' + time.h} : 
+      ${time.m >= 10 ? time.m : '0' + time.m} : 
+      ${time.s >= 10 ? time.s : '0' + time.s} : 
+      ${time.ms >= 10 ? time.ms : '0' + time.ms}`;
+      let arrIntervalsInDiv = [...intervalData, interval];
       setIntervalData(arrIntervalsInDiv);
    };
+   let outputData = intervalData
+      .map((item, index) => (
+         <div className={style.resInterval} key={index}>
+            {item}
+         </div>
+      ))
+      .reverse();
 
    const resume = () => start();
 
@@ -76,9 +82,9 @@ const Stopwatch = () => {
             </div>
          </div>
          <div className={style.buttons}>
-            <Button status={status} resume={resume} reset={reset} stop={stop} start={start} saveInterval={saveInterval}/>
+            <Button status={status} resume={resume} reset={reset} stop={stop} start={start} saveInterval={saveInterval} />
          </div>
-         <div className={style.output}>{intervalData}</div>
+         <div className={style.output}>{outputData}</div>
       </div>
    );
 };
